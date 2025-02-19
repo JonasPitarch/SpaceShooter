@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxmw4wchdfcu1"]
+
+[ext_resource type="Script" path="res://joc.gd" id="1_gl8ya"]
+[ext_resource type="PackedScene" uid="uid://dhbafne5rqdcl" path="res://parallax_background.tscn" id="1_ruu5b"]
+[ext_resource type="PackedScene" uid="uid://kfx06v3f01ci" path="res://jugador.tscn" id="2_d1p62"]
+
+[sub_resource type="Theme" id="Theme_ka8vg"]
+default_font_size = 47
+
+[node name="joc" type="Node2D"]
+position = Vector2(3, 1)
+script = ExtResource("1_gl8ya")
+
+[node name="fondo" parent="." instance=ExtResource("1_ruu5b")]
+
+[node name="jugador" parent="." instance=ExtResource("2_d1p62")]
+position = Vector2(241, 776)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.75
+autostart = true
+
+[node name="text_game_over" type="RichTextLabel" parent="."]
+offset_left = 96.0
+offset_top = 308.0
+offset_right = 468.0
+offset_bottom = 414.0
+theme = SubResource("Theme_ka8vg")
+text = "GAME OVER!!!!!!"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

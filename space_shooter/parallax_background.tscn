@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhbafne5rqdcl"]
+
+[ext_resource type="Script" path="res://parallax_background.gd" id="1_ffd10"]
+[ext_resource type="Texture2D" uid="uid://61wr18g102wd" path="res://sprites_shooter_godot/purple.png" id="2_4ee5h"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+script = ExtResource("1_ffd10")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(0, 960)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+texture_repeat = 2
+texture = ExtResource("2_4ee5h")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 540, 960)
